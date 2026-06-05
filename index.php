@@ -9,10 +9,11 @@ $conn = new mysqli(
     getenv("DB_NAME"),
     getenv("DB_PORT")
 );
-
-$username = $_POST["username"] ?? "";
-$password = $_POST["password"] ?? "";
-
+echo json_encode([
+    "username" => $username,
+    "password" => $password
+]);
+exit();
 $sql = "SELECT * FROM users
         WHERE username='$username'
         AND password='$password'";
