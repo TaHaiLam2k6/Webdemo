@@ -10,8 +10,8 @@ $conn = new mysqli(
     getenv("DB_PORT")
 );
 
-$username = $_POST["username"];
-$password = $_POST["password"];
+$username = $_POST["username"] ?? "";
+$password = $_POST["password"] ?? "";
 
 $sql = "SELECT * FROM users
         WHERE username='$username'
