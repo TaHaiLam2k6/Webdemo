@@ -1,0 +1,23 @@
+<script>
+document.getElementById("loginForm")
+.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    let response = await fetch(
+        "https://TEN-APP-RENDER.onrender.com/index.php",
+        {
+            method:"POST",
+            body:new FormData(this)
+        }
+    );
+
+    let data = await response.json();
+
+    if(data.success){
+        window.location.href = "index.html";
+    } else {
+        alert("Sai tài khoản hoặc mật khẩu");
+    }
+});
+</script>
